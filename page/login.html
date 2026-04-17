@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HatchAI Login</title>
+  <link rel="stylesheet" href="../src/output.css" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../image/hatchai-circle-logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #fffbeb 0%, #ffffff 45%, #f9fafb 100%);
+      min-height: 100vh;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .fade-up-delay-1 {
+      animation-delay: 0.15s;
+    }
+
+    .fade-up-delay-2 {
+      animation-delay: 0.3s;
+    }
+
+    .fade-up-delay-3 {
+      animation-delay: 0.45s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(229, 231, 235, 0.7);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+    }
+
+    .floatY {
+      animation: floatY 5s ease-in-out infinite;
+    }
+
+    @keyframes floatY {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+   <!-- Top Navigator -->
+  <nav class="bg-white/80 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.08)] sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex justify-between items-center h-16">
+
+        <!-- Logo -->
+        <a href="#home" class="flex items-center space-x-2 min-w-0">
+          <img src="../image/hatchai-logo-no-bg.png" alt="HatchAI Logo" class="h-10 w-auto object-contain" />
+          <div class="text-xl sm:text-2xl font-bold text-gray-900 flex whitespace-nowrap">
+            Hatch
+            <span class="text-amber-600">AI</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex space-x-6 items-center text-sm xl:text-base">
+          <a href="index.html#home" class="nav-link text-gray-700">Home</a>
+          <a href="index.html#features" class="nav-link text-gray-700">Features</a>
+          <a href="index.html#how-it-works" class="nav-link text-gray-700">How It Works</a>
+          <a href="index.html#about" class="nav-link text-gray-700">About Us</a>
+          <a href="index.html#contact" class="nav-link text-gray-700">Contact Us</a>
+        </div>
+
+        <!-- Get Started Button -->
+        <div class="hidden lg:block">
+          <a href="login.html" class="bg-amber-600 text-white px-5 py-2 rounded-lg hover:bg-amber-700 transition whitespace-nowrap shadow-sm hover:shadow-md">
+            Login
+          </a>
+        </div>
+
+        <!-- Hamburger -->
+        <button id="menu-btn" class="lg:hidden flex flex-col space-y-1.5 focus:outline-none" aria-label="Toggle menu">
+          <span class="block w-6 h-0.5 bg-gray-800 transition"></span>
+          <span class="block w-6 h-0.5 bg-gray-800 transition"></span>
+          <span class="block w-6 h-0.5 bg-gray-800 transition"></span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile / Tablet Menu -->
+    <div id="menu" class="hidden lg:hidden px-4 sm:px-6 pb-4">
+      <div class="mt-2 rounded-2xl bg-white shadow-md border border-gray-100 p-4 space-y-2">
+        <a href="index.html#home" class="mobile-link block py-2 text-gray-700 hover:text-amber-600 transition">Home</a>
+        <a href="index.html#features" class="mobile-link block py-2 text-gray-700 hover:text-amber-600 transition">Features</a>
+        <a href="index.html#how-it-works" class="mobile-link block py-2 text-gray-700 hover:text-amber-600 transition">How It Works</a>
+        <a href="index.html#about" class="mobile-link block py-2 text-gray-700 hover:text-amber-600 transition">About Us</a>
+        <a href="index.html#contact" class="mobile-link block py-2 text-gray-700 hover:text-amber-600 transition">Contact Us</a>
+
+        <a href="login.html" class="block mt-3 bg-amber-600 text-white px-4 py-2 rounded-lg text-center hover:bg-amber-700 transition">
+          Login
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Login Section -->
+  <main class="relative overflow-hidden min-h-[calc(100vh-64px)] flex items-center">
+    <!-- Background Blobs -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-10 left-10 w-72 h-72 bg-amber-100 rounded-full blur-3xl opacity-70"></div>
+      <div class="absolute bottom-10 right-10 w-80 h-80 bg-orange-100 rounded-full blur-3xl opacity-60"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-50 rounded-full blur-3xl opacity-80"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 py-16 w-full">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Left Side -->
+        <div class="hidden lg:block">
+          <div class="max-w-xl">
+            <span class="fade-up inline-flex items-center rounded-full bg-amber-100 text-amber-700 px-4 py-1 text-sm font-medium">
+              Welcome Back
+            </span>
+
+            <h1 class="fade-up fade-up-delay-1 mt-6 text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
+              Sign in to manage your
+              <span class="text-amber-600">smart hatch system</span>
+            </h1>
+
+            <p class="fade-up fade-up-delay-2 mt-6 text-lg text-gray-600 leading-relaxed">
+              Access your dashboard, monitor incubation conditions, track hatch performance,
+              and manage predictions in one place.
+            </p>
+
+            <div class="fade-up fade-up-delay-3 mt-8 grid sm:grid-cols-2 gap-4">
+              <div class="glass-card rounded-2xl p-5 floatY">
+                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-amber-100 mb-4">
+                  <i data-lucide="shield-check" class="w-6 h-6 text-amber-600"></i>
+                </div>
+                <h3 class="font-semibold text-gray-900">Secure Access</h3>
+                <p class="mt-2 text-sm text-gray-500">
+                  Your account and hatch data are protected with secure login access.
+                </p>
+              </div>
+
+              <div class="glass-card rounded-2xl p-5 floatY" style="animation-delay: .5s;">
+                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-amber-100 mb-4">
+                  <i data-lucide="layout-dashboard" class="w-6 h-6 text-amber-600"></i>
+                </div>
+                <h3 class="font-semibold text-gray-900">Smart Dashboard</h3>
+                <p class="mt-2 text-sm text-gray-500">
+                  View temperature, humidity, egg turning, and AI predictions anytime.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side / Form -->
+        <div class="w-full max-w-md mx-auto">
+          <div class="glass-card rounded-3xl p-8 sm:p-10 fade-up fade-up-delay-1">
+            <div class="text-center">
+             <div class="mx-auto w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center mb-4">
+  <img src="../image/hatchai-circle-logo.png" alt="HatchAI Logo" class="w-12 h-12 object-contain">
+</div>     
+<h2 class="text-3xl font-bold text-gray-900">Login</h2>
+              <p class="mt-2 text-gray-500 text-sm">
+                Enter your credentials to continue
+              </p>
+            </div>
+
+            <form class="mt-8 space-y-5">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                  Email Address
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                  </span>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    class="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-300 bg-white/90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <label for="password" class="block text-sm font-medium text-gray-700">
+                    Password
+                  </label>
+                  
+                </div>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-gray-400">
+                    <i data-lucide="lock" class="w-5 h-5"></i>
+                  </span>
+                  <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    class="w-full pl-12 pr-12 py-3 rounded-xl border border-gray-300 bg-white/90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition"
+                  />
+                  <button
+                    type="button"
+                    id="togglePassword"
+                    class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-amber-600 transition"
+                  >
+                    <i data-lucide="eye" class="w-5 h-5"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between text-sm">
+                <label class="inline-flex items-center gap-2 text-gray-600">
+                  <input type="checkbox" class="rounded border-gray-300 text-amber-600 focus:ring-amber-500" />
+                  Remember me
+                </label>
+                <a href="#" class="text-sm text-amber-600 hover:text-amber-700 font-medium transition">
+                    Forgot Password?
+                  </a>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-xl transition shadow-md hover:shadow-lg"
+              >
+                Sign In
+              </button>
+            </form>
+
+            <div class="my-6 flex items-center gap-4">
+              <div class="h-px bg-gray-200 flex-1"></div>
+              <span class="text-sm text-gray-400">or continue with</span>
+              <div class="h-px bg-gray-200 flex-1"></div>
+            </div>
+
+           <div class="grid grid-cols-2 gap-3">
+  <button class="flex items-center justify-center gap-2 border border-gray-300 bg-white hover:bg-gray-50 rounded-xl py-3 text-sm font-medium text-gray-700 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-5 h-5">
+      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l5.7-5.7C34.1 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"/>
+      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.4 18.9 12 24 12c3 0 5.7 1.1 7.8 2.9l5.7-5.7C34.1 6.1 29.3 4 24 4c-7.7 0-14.3 4.3-17.7 10.7z"/>
+      <path fill="#4CAF50" d="M24 44c5.2 0 10-2 13.5-5.3l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.1-3.3 5.5-6.2 7.1l6.2 5.2C39.2 36.7 44 31 44 24c0-1.3-.1-2.3-.4-3.5z"/>
+    </svg>
+    Google
+  </button>
+
+  <button class="flex items-center justify-center gap-2 border border-gray-300 bg-white hover:bg-gray-50 rounded-xl py-3 text-sm font-medium text-gray-700 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F2" class="w-5 h-5">
+      <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.008 10.125 11.927v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.313 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.926-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.081 24 18.092 24 12.073z"/>
+    </svg>
+    Facebook
+  </button>
+</div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <script src="../js/script.js"></script>
+
+  <script>
+    lucide.createIcons();
+
+    const togglePassword = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("password");
+
+    togglePassword.addEventListener("click", () => {
+      const isPassword = passwordInput.type === "password";
+      passwordInput.type = isPassword ? "text" : "password";
+      togglePassword.innerHTML = isPassword
+        ? '<i data-lucide="eye-off" class="w-5 h-5"></i>'
+        : '<i data-lucide="eye" class="w-5 h-5"></i>';
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
